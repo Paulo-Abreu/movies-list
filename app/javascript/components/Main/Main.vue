@@ -23,15 +23,17 @@
 import List from '../Movies/List.vue';
 import Sidebar from '../Sidebar/Sidebar.vue';
 import Show from '../Movies/ShowMovie.vue';
+import Peoples from '../Movies/Peoples.vue';
 const componentDicionary = {
   list: List,
   sidebar: Sidebar,
   show: Show,
+  peoples: Peoples,
 };
 export default {
   name: 'Main',
   components: {
-    List, Sidebar, Show
+    List, Sidebar, Show, Peoples,
   },
   props: {
     componentName: {

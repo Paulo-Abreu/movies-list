@@ -6,19 +6,7 @@
         <div class="main-panel">
           <div class="content">
             <header>
-              <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div id="navbarBasicExample" class="navbar-menu">
-                  <div class="navbar-end">
-                    <div class="navbar-item">
-                      <div class="buttons">
-                        <a class="button is-danger">
-                          <strong>Log out</strong>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
+              
             </header>
             <Sidebar />
             <div class="dashboard">
@@ -34,14 +22,16 @@
 <script>
 import List from '../Movies/List.vue';
 import Sidebar from '../Sidebar/Sidebar.vue';
+import Show from '../Movies/ShowMovie.vue';
 const componentDicionary = {
   list: List,
   sidebar: Sidebar,
+  show: Show,
 };
 export default {
   name: 'Main',
   components: {
-    List, Sidebar,
+    List, Sidebar, Show
   },
   props: {
     componentName: {

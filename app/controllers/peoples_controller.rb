@@ -1,8 +1,8 @@
-class MoviesController < ApplicationController
+class PeoplesController < ApplicationController
     before_action :view_movie, only: %i[ show ]
     def index
         @props = {
-            component_name: 'people'
+            component_name: 'peoples'
         }
     end
     def show

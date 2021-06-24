@@ -1,13 +1,12 @@
-<template>
+<<template>
     <div>
         <div>
             <input type="search" class="input is-light" placeholder="Search by name" />                                
         </div>
-        <br>
         <div class="">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="">
+                    <div class="card-content">
                             <div class="header-content">
                                 <div class="media-left">
                                     <h4 class="card-title mt-0">Filmes</h4>
@@ -16,7 +15,7 @@
                                 <div>
                                 </div>
                             </div>
-                        <div class="">
+                        <div class="card-body">
                             
                         </div>
                         <div>
@@ -44,6 +43,7 @@
         </div>
     </div>
 </template>
+
 <script>
 import axios from 'axios';
     export default {

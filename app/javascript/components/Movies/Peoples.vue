@@ -19,21 +19,23 @@
                             
                         </div>
                         <div>
-                            <div class="card">
-                            <table class="table is-striped">
-                                <tbody>
-                                    <tr v-for="people in peoples" :key="people.name">
-                                        <td><img :src="img + movie.poster_path"></td>
-                                        <td @click="showPeople(people.id)">
-                                            <h3>{{movie.title}}</h3>
-                                            <br>
-                                        </td>
-                                        <br>
-                                        <td><p><i class="fas fa-star"></i>{{movie.vote_average}}</p></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            </div>
+                            <ul class="list">
+                                <li class="card" @click="showMovie(people.id)" v-for="people in peoples" :key="people.name">
+                                    <div>
+                                    </div>
+                                        <img class="img" :src="img + people.profile_path">
+                                    <div>
+                                    <div>
+                                        <a class="card">
+                                            <h3>{{people.name}}</h3>
+                                        </a> 
+                                    </div>
+                                    <div>
+                                        <p><i class="fas fa-star"></i>{{people.popularity}}</p>
+                                    </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -59,8 +61,8 @@ import axios from 'axios';
         },
         mounted() {
             axios.get('https://api.themoviedb.org/3/person/popular?api_key=e2e6c0526e3737f2381684d2fd63d354&language=en-US&page=1').then(response => {
-                this.peoples = response, 
-                console.log(response) 
+                this.peoples = response.data.results, 
+                console.log(response.data.results) 
             })
             this.img = "https://image.tmdb.org/t/p/w500"
             

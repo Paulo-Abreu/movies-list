@@ -6,9 +6,15 @@
             <p class="title is-2">Filmes, séries e muito mais!</p>
         </a>
         </li>
+        <hr>
         <li class="menu-item">
-        <a class="menu-link" @click="showSeries">
-            <p class="title is-2">Séries</p>
+        <a class="menu-link" @click="showPeoples">
+            <p class="title is-2">Pessoas</p>
+        </a>
+        </li>
+        <li class="menu-item">
+        <a class="menu-link" @click="showMovies">
+            <p class="title is-2">Filmes</p>
         </a>
         </li>
     </ul>
@@ -18,8 +24,11 @@
 export default {
   name: 'MenuLinks',
   methods: {
-      showSeries: function (envent){
-          window.location = '/series'
+      showPeoples: function (envent){
+          window.location = '/peoples'
+      },
+      showMovies: function (envent){
+          window.location = '/'
       }
   }
 }

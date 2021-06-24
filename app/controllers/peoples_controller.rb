@@ -1,5 +1,5 @@
 class PeoplesController < ApplicationController
-    before_action :view_movie, only: %i[ show ]
+    before_action :view_people, only: %i[ show ]
     def index
         @props = {
             component_name: 'peoples'
@@ -7,13 +7,13 @@ class PeoplesController < ApplicationController
     end
     def show
         @props = {
-            component_name: 'show',
+            component_name: 'show_people',
             component_data: @people
         }
     end
     private
     
-    def view_movie
+    def view_people
         @people = (params[:id])
     end
 end

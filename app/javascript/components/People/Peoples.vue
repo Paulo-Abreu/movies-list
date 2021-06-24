@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <input type="search" class="input is-light" placeholder="Search by name" />                                
+            <input v-model="search" type="search" class="input is-light" placeholder="Search by name" />                                
         </div>
         <div class="">
             <div class="row">
@@ -20,7 +20,7 @@
                         </div>
                         <div>
                             <ul class="list">
-                                <li class="card" @click="showMovie(people.id)" v-for="people in peoples" :key="people.name">
+                                <li class="card" @click="showPeople(people.id)" v-for="people in peoples" :key="people.name">
                                     <div>
                                     </div>
                                         <img class="img" :src="img + people.profile_path">
@@ -52,6 +52,7 @@ import axios from 'axios';
             return{
                 peoples: [],
                 img: '',
+                search: ''
             }
         },
         props: {
@@ -70,7 +71,23 @@ import axios from 'axios';
         methods:{
             showList: function (event) {
                 window.location = '/' 
-            }        
+            },
+            showPeople: function (id) {
+                window.location = '/peoples/' + id 
+            },
+        watch:{
+            search: function(val, oldVal) {
+                if(val.length > 2) {
+                    this.getContacts(val)
+                }
+            },
+             getContacts(name) {
+                axios.get('/api/v1/contacts?filter=' + name + '&fields=id,name,phone,email,details,user_id')
+                .then(response => {
+                this.contacts = response.data
+                })
+            },
+        }
         }
     }
 </script>

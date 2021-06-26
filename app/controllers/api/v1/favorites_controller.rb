@@ -1,6 +1,6 @@
 module Api::V1
     class FavoritesController < Api::BaseController
-        before_action :view_movie, :view_serie, only: %i[ movies series index ] 
+        before_action :view_movie, :view_serie, :delete_favorite, only: %i[ movies series index destroy ] 
 
         def movies
             movie = Movie.new(external_id: @movie[:id], name: @movie[:title], overview: @movie[:overview], popularity: @movie[:popularity], poster_path: @movie[:poster_path], vote_average: @movie[:vote_average], user: current_user)
@@ -31,8 +31,12 @@ module Api::V1
             render json: @favorites, status: 200
         end
 
-        def delete
-            
+        def destroy 
+            fav = @favorite.to_i
+            favorite = Favorite.find_by(id:fav).delete
+            if  favorite.delete     
+                {message: "deleted"}
+            end
         end
 
         private
@@ -41,6 +45,9 @@ module Api::V1
         end
         def view_serie
             @serie = (params[:serie])
+        end
+        def delete_favorite
+            @favorite = (params[:id])
         end
     end
 end

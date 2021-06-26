@@ -16,8 +16,8 @@
                             
                         </div>
                         <div>
-                            <ul class="list">
-                                <li class="card" @click="showPeople(people.id)" v-for="people in peoples" :key="people.name">
+                            <div class="list">
+                                <div class="card list-item" @click="showPeople(people.id)" v-for="people in peoples" :key="people.name">
                                     <div>
                                     </div>
                                         <img class="img" :src="img + people.profile_path">
@@ -31,8 +31,8 @@
                                         <p><i class="fas fa-star"></i>{{people.popularity}}</p>
                                     </div>
                                     </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -83,16 +83,26 @@ export default {
 }
 </script>
 <style>
-.table td{
+list{
     cursor: pointer;
-    padding-top: 15px;
+    margin-top: 20px;
+    list-style: none;
 }
-.table img{
+.list .list-item:hover{
+    transition: 0.5s;
+    transform: scale(1.03);
+}
+.img{
     width: 72px;
     height: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
 }
-
-.table{
-    padding: 100px;
+.list .list-item{
+    list-style: none;
+    margin-top: 15px;
+    box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 56%), 0 4px 25px 0 rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
+    border-radius: 15px;
 }
 </style>

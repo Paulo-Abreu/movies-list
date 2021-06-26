@@ -82,9 +82,11 @@ import axios from 'axios';
                 .then(response => {window.location = '/favorites', console.log(response) })  
             },
             verifyTextOverview(description){
-                console.log("ZAAAAA",description)
-                return description.substring(0, 100) + "..."; 
-                
+                if (description.length >= 300)
+                    return description.substring(0, 300) + "..."
+                else 
+                    return description
+                end              
             }
         },
     
@@ -111,6 +113,8 @@ import axios from 'axios';
 .list .list-item{
     list-style: none;
     margin-top: 15px;
+    box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 56%), 0 4px 25px 0 rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
+    border-radius: 15px;
 }
 #data{
     font-style: italic;

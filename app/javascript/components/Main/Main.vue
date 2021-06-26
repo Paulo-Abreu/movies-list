@@ -25,7 +25,6 @@ import Sidebar from '../Sidebar/Sidebar.vue';
 import Show from '../Movies/ShowMovie.vue';
 import Peoples from '../People/Peoples.vue';
 import ShowPeople from '../People/ShowPeople.vue';
-import MoviesForm from '../Movies/MoviesForm.vue';
 import Favorites from '../Favorites/MyMovies.vue';
 import Series from '../Series/Series.vue';
 import ShowSerie from '../Series/ShowSerie.vue';
@@ -35,7 +34,6 @@ const componentDicionary = {
   show: Show,
   peoples: Peoples,
   show_people: ShowPeople,
-  movies_form: MoviesForm,
   favorites: Favorites,
   series: Series,
   show_serie: ShowSerie,
@@ -43,7 +41,7 @@ const componentDicionary = {
 export default {
   name: 'Main',
   components: {
-    List, Sidebar, Show, Peoples, ShowPeople, MoviesForm, Favorites, Series, ShowSerie,
+    List, Sidebar, Show, Peoples, ShowPeople, Favorites, Series, ShowSerie,
   },
   props: {
     componentName: {

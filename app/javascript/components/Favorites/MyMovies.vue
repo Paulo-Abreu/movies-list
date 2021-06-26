@@ -20,8 +20,8 @@
                             
                         </div>
                         <div>
-                            <ul class="list">
-                                <li @click="showMovie(favorite.external_id, 'movies')" class="card" v-for="favorite in movies" :key="favorite">
+                            <div class="list">
+                                <div @click="showMovie(favorite.external_id, 'movies')" class="card list-item" v-for="favorite in movies" :key="favorite">
                                     <div>
                                     </div>
                                         <img class="img" :src="img + favorite.poster_path">
@@ -42,10 +42,10 @@
                                         <button @click="deleteFavorite(favorite.id)" class="button is-danger"><i class="fas fa-times"></i></i></button>
                                     </div>
                                     </div>
-                                </li>
-                            </ul>
-                            <ul class="list">
-                                <li @click="showMovie(favorite.external_id, 'series')" class="card" v-for="favorite in series" :key="favorite">
+                                </div>
+                            </div>
+                            <div class="list">
+                                <div @click="showMovie(favorite.external_id, 'series')" class="card list-item" v-for="favorite in series" :key="favorite">
                                     <div>
                                     </div>
                                         <img class="img" :src="img + favorite.poster_path">
@@ -55,7 +55,7 @@
                                             <h3>{{favorite.name}}</h3>
                                         </a>
                                         <br>
-                                        <p maxlength="100" >{{favorite.overview}}</p>
+                                        <p maxlength="100" >{{verifyTextOverview(favorite.overview)}}</p>
                                     </div>
                                     <br>
                                     <div>
@@ -66,8 +66,8 @@
                                         <button @click="deleteFavorite(favorite.id)" class="button is-danger"><i class="fas fa-times"></i></i></button>
                                     </div>
                                     </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -115,8 +115,19 @@ import axios from 'axios';
                 this.favorites = response.data
                 })
         },
-        showMovie: function (external_id, type) {
+        showMovie(external_id, type) {
             window.location = `/${type}/` + external_id
+        },
+        deleteFavorite(id){
+                axios.delete('/api/v1/favorites/' + id)
+                .then(response => {window.location = '/favorites', console.log(response) })
+        },
+        verifyTextOverview(description){ 
+                if (description.length >= 300)
+                    return description.substring(0, 300) + "..."
+                else 
+                    return description
+                end          
         },
     },
     watch:{
@@ -134,15 +145,21 @@ import axios from 'axios';
     margin-top: 20px;
     list-style: none;
 }
-.list li:hover{
+.list .list-item:hover{
     transition: 0.5s;
     transform: scale(1.03);
 }
 .img{
     width: 72px;
     height: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
 }
-.list li{
+.list .list-item{
     list-style: none;
+    margin-top: 15px;
+    box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 56%), 0 4px 25px 0 rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
+    border-radius: 15px;
 }
 </style>

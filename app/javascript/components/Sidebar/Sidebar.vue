@@ -22,7 +22,7 @@ export default {
     left: 0;
     z-index: 1;
     width: 300px;
-    background: #a5a9a8;
+    background: #001e5e;
     box-shadow: 0 16px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
   }
   .sidebar .menu li a

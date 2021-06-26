@@ -9,22 +9,22 @@
         <hr>
         <li class="menu-item">
         <a class="menu-link" @click="showPeoples">
-            <p class="title is-2"><i class="far fa-user"></i> Pessoas</p>
+            <p class="title is-2"><i class="far fa-user"></i>   Pessoas</p>
         </a>
         </li>
         <li class="menu-item">
         <a class="menu-link" @click="showMovies">
-            <p class="title is-2">Filmes    <i class="fas fa-film"></i></p>
+            <p class="title is-2"><i class="fas fa-film"></i>   Filmes</p>
         </a>
         </li>
         <li class="menu-item">
         <a class="menu-link" @click="showSeries">
-            <p class="title is-2">Series    <i class="fas fa-tv"></i></p>
+            <p class="title is-2"> <i class="fas fa-tv"></i>    Series</p>
         </a>
         </li>
         <li class="menu-item">
         <a class="menu-link" @click="showFavorites">
-            <p class="title is-2">Minha lista   <i class="fas fa-list-ul"></i></p>
+            <p class="title is-2"><i class="fas fa-list-ul"></i>    Minha lista</p>
         </a>
         </li>
     </ul>

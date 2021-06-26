@@ -7,7 +7,7 @@
                 <div class="media-content">
                     <h2>{{people.name}}</h2>
                     <br>
-                    <h4>Biography <i class="fas fa-book-medical"></i></h4>
+                    <h4><i class="fas fa-book-medical"></i> Biography </h4>
                     <p>{{this.people.biography}}</p>
                     <br>
                     <img :src="img + this.people.profile_path">
@@ -16,7 +16,7 @@
                     <h6>Also known as:</h6>
                     <p>{{this.people.also_known_as[0]}}, {{this.people.also_known_as[1]}}</p>
                     <br>
-                    <h6>Birth place <i class="fas fa-map-pin"></i></h6>
+                    <h6><i class="fas fa-map-pin"></i>  Birth place </h6>
                     <p>{{this.people.birthday}}, {{this.people.place_of_birth}}</p>
                     <br>
                     <h6>Popularity:</h6>

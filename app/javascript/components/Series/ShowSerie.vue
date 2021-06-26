@@ -5,22 +5,24 @@
                 <div class="media-left">
                 </div>
                 <div class="media-content">
-                    <h2>{{people.name}}</h2>
+                    <h2>{{serie.name}}</h2>
+                    <p id="date">{{serie.first_air_date}}</p>
+                    <h4>Created by:</h4>
+                    <img :src="img + serie.created_by[0].profile_path">
                     <br>
-                    <h4>Biography <i class="fas fa-book-medical"></i></h4>
-                    <p>{{this.people.biography}}</p>
+                    <p>{{this.serie.created_by[0].name}}</p>
                     <br>
-                    <img :src="img + this.people.profile_path">
+                    <h4>Overview:</h4>
+                    <p>{{this.serie.overview}}</p>
                     <br>
+                    <img :src="img + serie.poster_path">
                     <br>
-                    <h6>Also known as:</h6>
-                    <p>{{this.people.also_known_as[0]}}, {{this.people.also_known_as[1]}}</p>
-                    <br>
-                    <h6>Birth place <i class="fas fa-map-pin"></i></h6>
-                    <p>{{this.people.birthday}}, {{this.people.place_of_birth}}</p>
                     <br>
                     <h6>Popularity:</h6>
-                    <p id="popularity">{{this.people.popularity}}</p>
+                    <p id="popularity">{{serie.popularity}}</p>
+                    <br>
+                    <h6>Rate:</h6>
+                    <p id="popularity"><i class="fas fa-star"></i> {{serie.vote_average}}</p>
                     <br>
                     <button class="button is-info" @click="ShowList">Back</button>
                 </div>
@@ -32,10 +34,10 @@
 <script>
 import axios from 'axios';
     export default{
-        name: 'ShowPeople',
+        name: 'ShowSerie',
         data(){
             return{
-                people: [],
+                serie: [],
                 img: ''
             }
         },
@@ -45,9 +47,9 @@ import axios from 'axios';
             }
         },
         mounted(){
-            axios.get('https://api.themoviedb.org/3/person/' + this.data + '?api_key=e2e6c0526e3737f2381684d2fd63d354&language=en-US').then(response => {
+            axios.get('https://api.themoviedb.org/3/tv/' + this.data + '?api_key=e2e6c0526e3737f2381684d2fd63d354&language=en-US').then(response => {
                 console.log("here",response) 
-                this.people = response.data
+                this.serie = response.data
                 this.img = "https://image.tmdb.org/t/p/w500"
             }) 
             console.log("data",this.data)
@@ -56,7 +58,7 @@ import axios from 'axios';
         methods: {
             
             ShowList: function (event) {
-                window.location = '/peoples'
+                window.location = '/series'
             }
         },
     }
@@ -67,5 +69,9 @@ import axios from 'axios';
 }
 #popularity{
     color: rgb(255, 203, 135);
+}
+#date{
+    font-style: italic;
+    font-size: small;
 }
 </style>

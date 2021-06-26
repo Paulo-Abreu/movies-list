@@ -6,7 +6,7 @@
                     <div class="card-content">
                             <div class="header-content">
                                 <div class="media-left">
-                                    <h4 class="card-title mt-0">Pessoas</h4>
+                                    <h4 class="card-title mt-0">Series</h4>
                                     <br>
                                 </div>
                                 <div>
@@ -17,18 +17,25 @@
                         </div>
                         <div>
                             <ul class="list">
-                                <li class="card" @click="showPeople(people.id)" v-for="people in peoples" :key="people.name">
+                                <li class="card" @click="showSerie(serie.id)" v-for="serie in series" :key="serie.name">
                                     <div>
                                     </div>
-                                        <img class="img" :src="img + people.profile_path">
+                                        <img class="img" :src="img + serie.poster_path">
                                     <div>
                                     <div>
                                         <a class="card">
-                                            <h3>{{people.name}}</h3>
+                                            <h3>{{serie.name}}</h3>
                                         </a> 
                                     </div>
                                     <div>
-                                        <p><i class="fas fa-star"></i>{{people.popularity}}</p>
+                                        <p>{{serie.overview}}</p>
+                                    </div>
+                                    <div>
+                                        <p><i class="fas fa-star"></i>{{serie.vote_average}}</p>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <button class="button is-light" @click="addFavorite(serie)"><i class="fas fa-bookmark"></i></button>
                                     </div>
                                     </div>
                                 </li>
@@ -44,12 +51,11 @@
 <script>
 import axios from 'axios';
 export default {
-    name: 'Peoples',
+    name: 'Series',
     data(){
         return{
-            peoples: [],
+            series: [],
             img: '',
-            search: ''
         }
     },
     props: {
@@ -58,9 +64,9 @@ export default {
         }
     },
     mounted() {
-        axios.get('https://api.themoviedb.org/3/person/popular?api_key=e2e6c0526e3737f2381684d2fd63d354&language=en-US&page=1').then(response => {
-            this.peoples = response.data.results, 
-            console.log(response.data.results) 
+        axios.get('https://api.themoviedb.org/3/tv/popular?api_key=e2e6c0526e3737f2381684d2fd63d354&language=en-US&page=1').then(response => {
+            this.series = response.data.results, 
+            console.log("here",response.data.results) 
         })
         this.img = "https://image.tmdb.org/t/p/w500"
         
@@ -69,17 +75,14 @@ export default {
         showList: function (event) {
             window.location = '/' 
         },
-        showPeople: function (id) {
-            window.location = '/peoples/' + id 
+        showSerie: function (id) {
+            window.location = '/series/' + id 
         },
+        addFavorite (serie) {
+                axios.post('/api/v1/favorites/series', {serie: serie})
+                .then(response => {window.location = '/favorites', console.log(response) })  
+         },
     },
-    watch:{
-        search: function(val, oldVal) {
-            if(val.length > 2) {
-                this.getContacts(val)
-            }
-        }
-    }
 }
 </script>
 <style>

@@ -5,6 +5,9 @@
                 <div class="media-left">
                 </div>
                 <div class="media-content">
+                    <h2>{{movie.title}}</h2>
+                    <p id="date">{{this.movie.release_date}}</p>
+                    <br>
                     <h4>Description:</h4>
                     <p>{{this.movie.overview}}</p>
                     <br>
@@ -17,8 +20,7 @@
                     <img :src="img + movie.poster_path"> 
                     <br>                   
                     <br>
-                    <h6>Release date:</h6><p>{{this.movie.release_date}}</p>
-                    <br>
+                    
                     <h6>Popularity:</h6><p id="popularity">{{this.movie.popularity}}</p>
                     <br>
                     <h6>Rating:</h6><p id="popularity"><i class="fas fa-star"></i> {{this.movie.vote_average}}</p>
@@ -66,5 +68,9 @@ import axios from 'axios';
 }
 #popularity{
     color: rgb(255, 203, 135);
+}
+#date{
+    font-size: small;
+    font-style: italic;
 }
 </style>

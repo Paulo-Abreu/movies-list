@@ -1,18 +1,16 @@
 # == Schema Information
 #
-# Table name: movies
+# Table name: series
 #
 #  id                :bigint           not null, primary key
-#  adult             :boolean
+#  first_air_date    :string
 #  genre_ids         :string
 #  name              :string
 #  original_language :string
-#  original_title    :string
+#  original_name     :string
 #  overview          :string
 #  popularity        :integer
 #  poster_path       :string
-#  release_date      :string
-#  title             :string
 #  vote_average      :integer
 #  vote_count        :integer
 #  created_at        :datetime         not null
@@ -23,28 +21,26 @@
 
 one:
   poster_path: MyString
-  adult: false
   overview: MyString
-  release_date: MyString
+  first_air_date: MyString
   genre_ids: MyString
-  id: 1
-  original_title: MyString
+  external_id: 1
+  original_name: MyString
   original_language: MyString
-  title: MyString
+  name: MyString
   popularity: 1
   vote_count: 1
   vote_average: 1
 
 two:
   poster_path: MyString
-  adult: false
   overview: MyString
-  release_date: MyString
+  first_air_date: MyString
   genre_ids: MyString
-  id: 1
-  original_title: MyString
+  external_id: 1
+  original_name: MyString
   original_language: MyString
-  title: MyString
+  name: MyString
   popularity: 1
   vote_count: 1
   vote_average: 1

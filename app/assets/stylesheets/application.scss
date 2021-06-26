@@ -1,15 +1,166 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+ .body logout{
+   margin: auto;
+   text-align: center;
+ }
+ input[type=text], input[type=number], input[type=password], input[type=email], select {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+ 
+  
+  
+  .login-container {
+    width: 500px;
+    margin: auto;
+    margin-top: 30px
+  }
+  
+  .signup-container {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #999999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    outline: none;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    background-clip: padding-box;
+    width: 70%;
+    margin: auto;
+    padding: 40px;
+    margin-top: 40px;
+  }
+  
+  .signup-container .signup-form input[type="text"], .signup-container .signup-form input[type="password"],
+  .signup-container .signup-form input[type="number"], .signup-container .signup-form input[type="email"] {
+      border-radius: 3px;
+      border: 2px;
+      color: #333333;
+      font-size: 16px;
+      height: 16px;
+      margin-bottom: 5px;
+      padding: 13px 12px;
+      width: 100%;
+  }
+  
+  .signup-container .signup-form .form-control {
+      border-radius: 3px;
+      background-color: rgba(0, 0, 0, 0.09);
+      box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.09) inset;
+      color: #FFFFFF;
+    }
+  
+    .signup-container .signup-form .btn-register {
+      background-color: #00BBFF;
+      border-color: black;
+      border-width: 2px;
+      color: #FFFFFF;
+      display: block;
+      margin: 0 auto;
+      padding: 15px 50px;
+      text-transform: uppercase;
+      width: 80%;
+      margin-top: 20px;
+  }
+  
+  .period-link {
+    cursor: pointer;
+  }
+  
+  .period-link:hover {
+    color: red;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn {
+    position: relative;
+    padding: 12px 30px;
+    margin: .3125rem 1px;
+    font-size: .75rem;
+    font-weight: 400;
+    line-height: 1.428571;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px;
+    border-radius: .2rem;
+    transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1);
+    will-change: box-shadow,transform;
+  }
+  
+  .btn.btn-primary {
+      color: #fff;
+      background-color: #1D1313;
+      border-color: #1D1313;
+      box-shadow: 0 2px 2px 0 rgba(156,39,176,.14), 0 3px 1px -2px rgba(156,39,176,.2), 0 1px 5px 0 rgba(156,39,176,.12);
+  }
+  
+  .btn.btn-primary:active, .btn.btn-primary:focus, .btn.btn-primary:hover {
+      box-shadow: 0 14px 26px -12px rgba(156,39,176,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(156,39,176,.2);
+  }
+  
+  .text-primary {
+      color: #1D1313!important;
+  }
+  
+  .table>tbody>tr:hover {
+    color: #aaa;
+    cursor: pointer;
+  }
+  
+  .bmd-form-group:not(.has-success):not(.has-danger) [class^=bmd-label].bmd-label-floating {
+      color: rgb(17, 236, 200);
+  }
+  
+  .bmd-form-group [class^=bmd-label].bmd-label-floating {
+      will-change: left,top,contents;
+      margin: 0;
+      line-height: 1.4;
+      font-weight: 400;
+  }
+  
+  .bmd-form-group [class*=" bmd-label"], .bmd-form-group [class^=bmd-label] {
+      position: absolute;
+      pointer-events: none;
+      transition: all .3s ease;
+  }
+ 
+  .field{
+    text-align: center;
+    margin: auto;
+  }
+ 
+  .login-form{
+     width: 30%;
+     border-width: 1px;
+     border: 3px solid rgb(133, 127, 127);
+     margin: auto;
+     border-radius: 10px;
+     padding: 20px;
+     margin-top: 20px;
+   }
+ 
+ 

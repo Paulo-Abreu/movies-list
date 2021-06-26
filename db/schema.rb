@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_24_205439) do
+ActiveRecord::Schema.define(version: 2021_06_25_215056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "movie_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "serie_id"
+  end
+
+  create_table "favorites_series", force: :cascade do |t|
+    t.integer "serie_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "movies", force: :cascade do |t|
     t.string "poster_path"
@@ -30,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_06_24_205439) do
     t.integer "vote_average"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.string "name"
   end
 
   create_table "people", force: :cascade do |t|
@@ -40,6 +57,23 @@ ActiveRecord::Schema.define(version: 2021_06_24_205439) do
     t.integer "external_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "series", force: :cascade do |t|
+    t.string "poster_path"
+    t.string "overview"
+    t.string "first_air_date"
+    t.string "genre_ids"
+    t.integer "external_id"
+    t.string "original_name"
+    t.string "original_language"
+    t.string "name"
+    t.integer "popularity"
+    t.integer "vote_count"
+    t.integer "vote_average"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

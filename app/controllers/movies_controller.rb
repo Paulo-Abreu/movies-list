@@ -8,11 +8,19 @@ class MoviesController < ApplicationController
     def show
         @props = {
             component_name: 'show',
-            component_data: @movie
+            component_data: [@movie]
+        }
+    end
+    def new
+        @props = {
+            component_name: 'movies_form',
+            component_data: [@movie]
         }
     end
     private
-    
+    def movie_params
+        params.require(:movie).permit(:title, :overview, :popularity, :vote_average, :poster_path)
+    end
     def view_movie
         @movie = (params[:id])
     end

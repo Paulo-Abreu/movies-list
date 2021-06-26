@@ -1,18 +1,16 @@
 # == Schema Information
 #
-# Table name: movies
+# Table name: series
 #
 #  id                :bigint           not null, primary key
-#  adult             :boolean
+#  first_air_date    :string
 #  genre_ids         :string
 #  name              :string
 #  original_language :string
-#  original_title    :string
+#  original_name     :string
 #  overview          :string
 #  popularity        :integer
 #  poster_path       :string
-#  release_date      :string
-#  title             :string
 #  vote_average      :integer
 #  vote_count        :integer
 #  created_at        :datetime         not null
@@ -20,6 +18,6 @@
 #  external_id       :integer
 #  user_id           :integer
 #
-class Movie < ApplicationRecord
+class Serie < ApplicationRecord
     belongs_to :user, optional: true
 end

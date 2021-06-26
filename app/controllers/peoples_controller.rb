@@ -8,7 +8,7 @@ class PeoplesController < ApplicationController
     def show
         @props = {
             component_name: 'show_people',
-            component_data: @people
+            component_data: [@people]
         }
     end
     private

@@ -1,8 +1,6 @@
 <<template>
     <div>
-        <div>
-            <input type="search" class="input is-light" placeholder="Search by name" />                                
-        </div>
+        <br>
         <div class="">
             <div class="row">
                 <div class="col-md-12">
@@ -19,8 +17,8 @@
                             
                         </div>
                         <div>
-                            <ul class="list">
-                                <li class="card" @click="showMovie(movie.id)" v-for="movie in movies" :key="movie.name">
+                            <div class="list">
+                                <div class="card list-item" @click="showMovie(movie.id)" v-for="movie in movies" :key="movie.name">
                                     <div>
                                     </div>
                                         <img class="img" :src="img + movie.poster_path">
@@ -28,14 +26,22 @@
                                     <div>
                                         <a class="card">
                                             <h3>{{movie.title}}</h3>
-                                        </a> 
+                                            <p id="data" class="subtitle-6">{{movie.release_date}}</p>
+                                        </a>
+                                        <br>
+                                        <p>{{verifyTextOverview(movie.overview)}}</p>
                                     </div>
+                                    <br>
                                     <div>
                                         <p><i class="fas fa-star"></i>{{movie.vote_average}}</p>
                                     </div>
+                                    <br>
+                                    <div>
+                                        <button class="button is-light" @click="addFavorite(movie)"><i class="fas fa-bookmark"></i></button>
                                     </div>
-                                </li>
-                            </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -68,10 +74,21 @@ import axios from 'axios';
             
         },
         methods:{
-            showMovie: function (id) {
+            showMovie (id) {
                 window.location = '/movies/' + id
-            }        
-        }
+            },
+            addFavorite (movie) {
+                axios.post('/api/v1/favorites/movies', {movie: movie})
+                .then(response => {window.location = '/favorites', console.log(response) })  
+            },
+            verifyTextOverview(description){
+                console.log("ZAAAAA",description)
+                return description.substring(0, 100) + "..."; 
+                
+            }
+        },
+    
+    
     }
 </script>
 <style>
@@ -80,15 +97,22 @@ import axios from 'axios';
     margin-top: 20px;
     list-style: none;
 }
-.list li:hover{
+.list .list-item:hover{
     transition: 0.5s;
     transform: scale(1.03);
 }
 .img{
     width: 72px;
     height: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
 }
-.list li{
+.list .list-item{
     list-style: none;
+    margin-top: 15px;
+}
+#data{
+    font-style: italic;
 }
 </style>

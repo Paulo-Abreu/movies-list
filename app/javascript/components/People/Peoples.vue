@@ -17,19 +17,17 @@
                         </div>
                         <div>
                             <div class="list">
-                                <div class="card list-item" @click="showPeople(people.id)" v-for="people in peoples" :key="people.name">
-                                    <div>
-                                    </div>
-                                        <img class="img" :src="img + people.profile_path">
-                                    <div>
-                                    <div>
-                                        <a class="card">
-                                            <h3>{{people.name}}</h3>
-                                        </a> 
-                                    </div>
-                                    <div>
-                                        <p><i class="fas fa-star"></i>{{people.popularity}}</p>
-                                    </div>
+                                <div class="card list-item" @click="showSerie(people.id)" v-for="people in peoples" :key="people.name">
+                                    <img class="img" :src="img + people.profile_path">
+                                    <div class="card-wrapper">
+                                        <div class="card-content">
+                                            <a class="card">
+                                                <h3>{{people.name}}</h3>
+                                            </a>
+                                        </div>
+										<div class="people-star">
+											<p><i class="fas fa-star"></i>{{people.popularity}}</p>
+										</div>
                                     </div>
                                 </div>
                             </div>
@@ -82,27 +80,3 @@ export default {
     }
 }
 </script>
-<style>
-list{
-    cursor: pointer;
-    margin-top: 20px;
-    list-style: none;
-}
-.list .list-item:hover{
-    transition: 0.5s;
-    transform: scale(1.03);
-}
-.img{
-    width: 72px;
-    height: auto;
-    left: 0;
-    top: 0;
-    bottom: 0;
-}
-.list .list-item{
-    list-style: none;
-    margin-top: 15px;
-    box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 56%), 0 4px 25px 0 rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
-    border-radius: 15px;
-}
-</style>

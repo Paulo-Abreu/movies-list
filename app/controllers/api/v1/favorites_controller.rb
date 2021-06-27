@@ -16,8 +16,8 @@ module Api::V1
             serie = Serie.new(external_id: @serie[:id], name: @serie[:name], overview: @serie[:overview], popularity: @serie[:popularity], poster_path: @serie[:poster_path], vote_average: @serie[:vote_average], user: current_user)
             serie.save! 
             favorite_serie = Favorite.new(user: current_user, serie_id: serie.id) 
-            if favorite_serie.save                
-                render json: favorite_serie, status: 201
+            if favorite_serie.save    
+                render json: favorite_serie, status: 201         
             else
                 render json: favorite_serie.errors.messages, status: 422
             end

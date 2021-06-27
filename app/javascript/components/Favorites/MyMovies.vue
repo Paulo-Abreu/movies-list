@@ -21,50 +21,38 @@
                         </div>
                         <div>
                             <div class="list">
-                                <div @click="showMovie(favorite.external_id, 'movies')" class="card list-item" v-for="favorite in movies" :key="favorite">
-                                    <div>
-                                    </div>
-                                        <img class="img" :src="img + favorite.poster_path">
-                                    <div>
-                                    <div>
-                                        <a class="card">
-                                            <h3>{{favorite.name}}</h3>
-                                        </a>
-                                        <br>
-                                        <p maxlength="100" >{{favorite.overview}}</p>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <p><i class="fas fa-star"></i>{{favorite.vote_average}}</p>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <button @click="deleteFavorite(favorite.id)" class="button is-danger"><i class="fas fa-times"></i></i></button>
-                                    </div>
+                                <div class="card list-item" @click="showMovie(movie.external_id, 'movies')" v-for="movie in movies" :key="movie.name">
+                                    <img class="img" :src="img + movie.poster_path">
+                                    <div class="card-wrapper">
+                                        <div class="card-content">
+                                            <a class="card">
+                                                <h3>{{movie.name}}</h3>
+                                                <p class="subtitle-6 data">{{movie.release_date}}</p>
+                                            </a>
+                                            <p class="card-description">{{verifyTextOverview(movie.overview)}}</p>
+                                        </div>
+										<div class="card-actions">
+											<p><i class="fas fa-star"></i>{{movie.vote_average}}</p>
+											<button id="favIcon" class="button is-danger card-actions--favorite" @click="deleteFavorite(movie.id)"><i class="fas fa-times"></i></i></button>
+										</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="list">
-                                <div @click="showMovie(favorite.external_id, 'series')" class="card list-item" v-for="favorite in series" :key="favorite">
-                                    <div>
-                                    </div>
-                                        <img class="img" :src="img + favorite.poster_path">
-                                    <div>
-                                    <div>
-                                        <a class="card">
-                                            <h3>{{favorite.name}}</h3>
-                                        </a>
-                                        <br>
-                                        <p maxlength="100" >{{verifyTextOverview(favorite.overview)}}</p>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <p><i class="fas fa-star"></i>{{favorite.vote_average}}</p>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <button @click="deleteFavorite(favorite.id)" class="button is-danger"><i class="fas fa-times"></i></i></button>
-                                    </div>
+                                <div class="card list-item" @click="showMovie(serie.external_id, 'series')" v-for="serie in series" :key="serie.name">
+                                    <img class="img" :src="img + serie.poster_path">
+                                    <div class="card-wrapper">
+                                        <div class="card-content">
+                                            <a class="card">
+                                                <h3>{{serie.name}}</h3>
+                                                <p class="subtitle-6 data">{{serie.release_date}}</p>
+                                            </a>
+                                            <p class="card-description">{{verifyTextOverview(serie.overview)}}</p>
+                                        </div>
+										<div class="card-actions">
+											<p><i class="fas fa-star"></i>{{serie.vote_average}}</p>
+											<button id="favIcon" class="button is-danger card-actions--favorite" @click="deleteFavorite(serie.id)"><i class="fas fa-times"></i></i></button>
+										</div>
                                     </div>
                                 </div>
                             </div>
@@ -123,8 +111,8 @@ import axios from 'axios';
                 .then(response => {window.location = '/favorites', console.log(response) })
         },
         verifyTextOverview(description){ 
-                if (description.length >= 300)
-                    return description.substring(0, 300) + "..."
+                if (description.length >= 200)
+                    return description.substring(0, 200) + "..."
                 else 
                     return description
                 end          
@@ -139,27 +127,3 @@ import axios from 'axios';
     }
 }
 </script>
-<style>
-.list{
-    cursor: pointer;
-    margin-top: 20px;
-    list-style: none;
-}
-.list .list-item:hover{
-    transition: 0.5s;
-    transform: scale(1.03);
-}
-.img{
-    width: 72px;
-    height: auto;
-    left: 0;
-    top: 0;
-    bottom: 0;
-}
-.list .list-item{
-    list-style: none;
-    margin-top: 15px;
-    box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 56%), 0 4px 25px 0 rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
-    border-radius: 15px;
-}
-</style>

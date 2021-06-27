@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :favorites
-      resources :movies, only: [:create, :update]
       post '/favorites/movies', to: 'favorites#movies'
       post '/favorites/series', to: 'favorites#series'
     end

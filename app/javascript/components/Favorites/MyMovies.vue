@@ -108,14 +108,12 @@ import axios from 'axios';
         },
         deleteFavorite(id){
                 axios.delete('/api/v1/favorites/' + id)
-                .then(response => {window.location = '/favorites', console.log(response) })
+                .then(response => { alert('Removido da lista!'),window.location = '/favorites', console.log(response) })
         },
         verifyTextOverview(description){ 
                 if (description.length >= 200)
                     return description.substring(0, 200) + "..."
-                else 
-                    return description
-                end          
+                else return description
         },
     },
     watch:{

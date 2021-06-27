@@ -77,14 +77,13 @@ export default {
       axios
         .post("/api/v1/favorites/movies", { movie: movie })
         .then((response) => {
-          (alert('Adicionado a minha lista!')), console.log(response);
+          (alert(movie.title + ' Foi adicionado a minha lista!')), console.log(response);
         });
     },
     verifyTextOverview(description) {
       if (description.length >= 200)
         return description.substring(0, 200) + "...";
-      else return description;
-      end;
+      else return description
     },
   },
 };

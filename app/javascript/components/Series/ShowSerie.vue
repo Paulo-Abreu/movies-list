@@ -63,15 +63,3 @@ import axios from 'axios';
         },
     }
 </script>
-<style>
-.media-content img{
-    width: 150px;    
-}
-#popularity{
-    color: rgb(255, 203, 135);
-}
-#date{
-    font-style: italic;
-    font-size: small;
-}
-</style>

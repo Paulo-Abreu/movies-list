@@ -97,12 +97,6 @@ import axios from 'axios';
         showList(event){
             window.location = '/'
         },
-        getFavorites(name) {
-                axios.get('/api/v1/favorites?filter=' + name + '&fields=id,name,overview,vote_average,popularity')
-                .then(response => {
-                this.favorites = response.data
-                })
-        },
         showMovie(external_id, type) {
             window.location = `/${type}/` + external_id
         },
@@ -116,12 +110,5 @@ import axios from 'axios';
                 else return description
         },
     },
-    watch:{
-        search: function(val, oldVal) {
-            if(val.length > 2) {
-                this.getFavorites(val)
-            }
-        }
-    }
 }
 </script>

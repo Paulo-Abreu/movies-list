@@ -71,12 +71,5 @@ export default {
             window.location = '/peoples/' + id 
         },
     },
-    watch:{
-        search: function(val, oldVal) {
-            if(val.length > 2) {
-                this.getContacts(val)
-            }
-        }
-    }
 }
 </script>

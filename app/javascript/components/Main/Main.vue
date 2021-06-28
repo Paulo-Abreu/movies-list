@@ -5,8 +5,7 @@
     <div>
         <div class="main-panel">
           <div class="content">
-            <header>
-              
+            <header> 
             </header>
             <Sidebar />
             <div class="dashboard">
@@ -61,24 +60,5 @@ export default {
 </script>
 
 <style>
-.main-panel {
-    position: relative;
-    float: right;
-    width: calc(100% - 260px);
-    transition: .33s,cubic-bezier(.685,.0473,.346,1);
-  }
-  .content {
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  .main-panel>.content {
-    margin-top: 80px;
-    padding: 30px 15px;
-    min-height: calc(100vh - 123px);
-}
-.dashboard {
-  width: 80%;
-  margin: auto;
-}
+
 </style>

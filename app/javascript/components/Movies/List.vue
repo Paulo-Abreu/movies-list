@@ -17,8 +17,8 @@
                             
                         </div>
                         <div>
-                            <div class="list">
-                                <div class="card list-item" @click="showMovie(movie.id)" v-for="movie in movies" :key="movie.name">
+                            <div class="cards">
+                                <div class="card card-item" @click="showMovie(movie.id)" v-for="movie in movies" :key="movie.name">
                                     <img class="img" :src="img + movie.poster_path">
                                     <div class="card-wrapper">
                                         <div class="card-content">
@@ -28,10 +28,10 @@
                                             </a>
                                             <p class="card-description">{{verifyTextOverview(movie.overview)}}</p>
                                         </div>
-										<div class="card-actions">
-											<p><i class="fas fa-star"></i>{{movie.vote_average}}</p>
-											<button id="favIcon" class="button is-light card-actions--favorite" @click="addFavorite(movie)"><i class="fas fa-star"></i></i></button>
-										</div>
+                                    <div class="card-actions">
+                                      <p><i class="fas fa-star"></i>{{movie.vote_average}}</p>
+                                      <button id="favIcon" class="button is-light card-actions--favorite" @click="addFavorite(movie)"><i class="fas fa-star"></i></i></button>
+                                    </div>
                                     </div>
                                 </div>
                             </div>

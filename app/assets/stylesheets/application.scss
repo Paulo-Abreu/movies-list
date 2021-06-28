@@ -1,3 +1,23 @@
+.main-panel {
+  position: relative;
+  float: right;
+  width: calc(100% - 260px);
+  transition: .33s,cubic-bezier(.685,.0473,.346,1);
+}
+.content {
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.main-panel>.content {
+  margin-top: 80px;
+  padding: 30px 15px;
+  min-height: calc(100vh - 123px);
+}
+.dashboard {
+width: 80%;
+margin: auto;
+}
 .media-content img{
   width: 150px;    
 }
@@ -8,12 +28,12 @@
   font-style: italic;
   font-size: small;
 }
-.list {
+.cards {
   cursor: pointer;
   margin-top: 20px;
   list-style: none;
 }
-.list .list-item:hover {
+.cards .card-item:hover {
   transition: 0.5s;
   transform: scale(1.03);
 }
@@ -26,7 +46,7 @@
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-.list .list-item {
+.cards .card-item {
   list-style: none;
   margin-top: 30px;
   border-radius: 15px;

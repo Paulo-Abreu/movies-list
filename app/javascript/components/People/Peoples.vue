@@ -16,8 +16,8 @@
                             
                         </div>
                         <div>
-                            <div class="list">
-                                <div class="card list-item" @click="showSerie(people.id)" v-for="people in peoples" :key="people.name">
+                            <div class="cards">
+                                <div class="card card-item" @click="showSerie(people.id)" v-for="people in peoples" :key="people.name">
                                     <img class="img" :src="img + people.profile_path">
                                     <div class="card-wrapper">
                                         <div class="card-content">

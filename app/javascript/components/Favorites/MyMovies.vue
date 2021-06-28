@@ -20,8 +20,8 @@
                             
                         </div>
                         <div>
-                            <div class="list">
-                                <div class="card list-item" @click="showMovie(movie.external_id, 'movies')" v-for="movie in movies" :key="movie.name">
+                            <div class="cards">
+                                <div class="card card-item" @click="showMovie(movie.external_id, 'movies')" v-for="movie in movies" :key="movie.name">
                                     <img class="img" :src="img + movie.poster_path">
                                     <div class="card-wrapper">
                                         <div class="card-content">
@@ -38,8 +38,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="list">
-                                <div class="card list-item" @click="showMovie(serie.external_id, 'series')" v-for="serie in series" :key="serie.name">
+                            <div class="cards">
+                                <div class="card card-item" @click="showMovie(serie.external_id, 'series')" v-for="serie in series" :key="serie.name">
                                     <img class="img" :src="img + serie.poster_path">
                                     <div class="card-wrapper">
                                         <div class="card-content">

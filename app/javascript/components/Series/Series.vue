@@ -16,8 +16,8 @@
                             
                         </div>
                         <div>
-                            <div class="list">
-                                <div class="card list-item" @click="showSerie(serie.id)" v-for="serie in series" :key="serie.name">
+                            <div class="cards">
+                                <div class="card card-item" @click="showSerie(serie.id)" v-for="serie in series" :key="serie.name">
                                     <img class="img" :src="img + serie.poster_path">
                                     <div class="card-wrapper">
                                         <div class="card-content">
